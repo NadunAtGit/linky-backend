@@ -33,6 +33,11 @@ mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true,useUnifiedTopolog
 });
 
 //signup api
+
+app.get('/api/health', (req, res) => {
+    res.status(200).json({ message: 'App is running!' });
+  });
+  
 app.post("/signup", async (req, res) => {
     const { userName, email, password, profilePicUrl } = req.body;
 
