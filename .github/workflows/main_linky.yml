@@ -62,4 +62,4 @@ jobs:
         with:
           app-name: 'linky'  # Your Azure App Service name
           slot-name: 'Production'
-          package: ./backend  # Ensure we're deploying only the backend folder
+          package: backend  # Ensure we're deploying only the backend folder
