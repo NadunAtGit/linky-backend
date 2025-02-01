@@ -19,11 +19,9 @@ const { v4: uuidv4 } = require('uuid');
 const PORT=process.env.PORT||0
 
 app.use(express.json());
-app.use(cors({origin:["https://linky-9k9.pages.dev","http://localhost:5173"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+app.use(cors(
 
-}));
+));
 
 
 mongoose.connect(process.env.MONGODB_URI)
