@@ -16,7 +16,7 @@ require("dotenv").config();
 const { v4: uuidv4 } = require('uuid');
 
 
-const PORT=process.env.PORT||8080
+const PORT=process.env.PORT||0
 
 app.use(express.json());
 app.use(cors({origin:["https://linky-9k9.pages.dev","http://localhost:5173"],
