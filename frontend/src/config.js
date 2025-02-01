@@ -1,0 +1,1 @@
+export const API_URL ="https://linky-b6hzgsbzg6gzehcc.eastus-01.azurewebsites.net"
