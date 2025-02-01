@@ -26,15 +26,17 @@ app.use(cors({origin:["https://linky-9k9.pages.dev","http://localhost:5173"],
 }));
 
 
-mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true,useUnifiedTopology: true }).then(()=>{
-    console.log("Database connected successfully");
-
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+        console.log("Database connected successfully");
         app.listen(PORT, () => {
-            console.log(`Server is running on: ${PORT}`);
+            console.log(`Server is running on port ${PORT}`);
         });
-}).catch((error)=>{
-    console.log("Database connection error:", error.message);
-});
+    })
+    .catch((error) => {
+        console.log("Database connection error:", error.message);
+    });
+
 
 //signup api
 
