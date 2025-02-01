@@ -59,12 +59,12 @@ const Login = () => {
       <div className="container h-screen px-30 mx-auto flex items-center justify-center">
         {/* Left image */}
         <div className="w-1/3 flex flex-col items-start justify-end h-[70vh] border-purple-400 rounded-xl p-10 z-50 bg-login-bg-img bg-cover bg-center shadow-md shadow-purple-400">
-          <h4 className="text-7xl font-semibold leading-[50px] text-black">Linky</h4>
+          {/* <h4 className="text-7xl font-semibold leading-[50px] text-black">Linky</h4>
           <p className="text-[20px] text-black leading-6 pr-7 mt-6">
             "Connect Your World,
             <br />
             All Your Links, One Place."
-          </p>
+          </p> */}
         </div>
 
         {/* Login Form */}

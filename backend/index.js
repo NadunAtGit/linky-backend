@@ -16,7 +16,7 @@ require("dotenv").config();
 const { v4: uuidv4 } = require('uuid');
 
 
-const PORT=process.env.PORT||0
+const PORT=process.env.PORT||8800
 
 app.use(express.json());
 app.use(cors(
@@ -24,7 +24,7 @@ app.use(cors(
 ));
 
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect("mongodb+srv://nadunsoor404:root@linktree.gy48i.mongodb.net/?retryWrites=true&w=majority&appName=linktree")
     .then(() => {
         console.log("Database connected successfully");
         app.listen(PORT, () => {
