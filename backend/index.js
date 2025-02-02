@@ -24,7 +24,7 @@ app.use(cors(
 ));
 
 
-mongoose.connect("mongodb+srv://nadunsoor404:root@linktree.gy48i.mongodb.net/?retryWrites=true&w=majority&appName=linktree")
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("Database connected successfully");
         app.listen(PORT, () => {
