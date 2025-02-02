@@ -42,7 +42,7 @@ app.get('/api/health', (req, res) => {
     res.status(200).json({ message: 'App is running!' });
   });
   
-app.post("/signup", async (req, res) => {
+  app.post("/signup", async (req, res) => {
     const { userName, email, password, profilePicUrl } = req.body;
 
     // Validate required fields
@@ -58,19 +58,23 @@ app.post("/signup", async (req, res) => {
             return res.status(400).json({ error: true, message: "User already exists" });
         }
 
-        if(isUserName){
+        if (isUserName) {
             return res.status(400).json({ error: true, message: "User Name is already exists" });
         }
 
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        // Generate the linkTreeUrl based on the username (e.g., "http://localhost:5173/username")
+        const linkTreeUrl = `http://localhost:5173/${userName}`;
+
         // Create new user object
         const newUser = new User({
             userName,
             email,
             password: hashedPassword,
-            profilePicUrl
+            profilePicUrl,
+            linkTreeUrl // Set the generated linkTreeUrl
         });
 
         // Save the user to the database
@@ -91,7 +95,7 @@ app.post("/signup", async (req, res) => {
                 email: newUser.email,
                 profilePicUrl: newUser.profilePicUrl,
                 links: newUser.links, // Default will be an empty array if not provided
-                linkTreeUrl: newUser.linkTreeUrl // Default will be null if not provided
+                linkTreeUrl: newUser.linkTreeUrl // Return the generated linkTreeUrl
             },
             accessToken,
             message: "Account created successfully"

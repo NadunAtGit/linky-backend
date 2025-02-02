@@ -21,9 +21,10 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   linkTreeUrl: {
-    type: String, // e.g., "http://linky/username"
-    unique: true,
-    default: null, // Default to null if not provided
+    type: String,
+  unique: true,
+  sparse: true, // Optional, doesn't require uniqueness when null
+  default: null,
   },
 });
 
